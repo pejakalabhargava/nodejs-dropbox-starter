@@ -1,0 +1,43 @@
+curl -i -X PUT  localhost:8000/foo.txt
+curl -i -X PUT  localhost:8000/bar.txt
+curl -i -X PUT  localhost:8000/test/bar.txt
+curl -i -X PUT  localhost:8000/test/foo.txt
+curl -i -X PUT  localhost:8000/test/foo.txt
+
+------------------------------------------------------------
+curl -v http://127.0.0.1:8000/foo.txt -X POST -d "hello foo"
+curl -v http://127.0.0.1:8000/bar.txt -X POST -d "hello bar"
+curl -v http://127.0.0.1:8000/test/bar.txt -X POST -d "hello bar in test"
+
+curl -v http://127.0.0.1:8000/bar1.txt -X POST -d "hello bar"
+------------------------------------------------------------
+
+curl --head  http://localhost:8000/
+curl --head  http://localhost:8000/test
+curl  -X GET  -v localhost:8000/
+curl  -X GET  -v localhost:8000/foo.txt
+curl  -X GET  -v localhost:8000/bar.txt
+curl  -X GET  -v localhost:8000/test/bar.txt
+
+curl -H "Accept: application/x-gtar" -X GET  localhost:8000/ >> output.tar
+mkdir output
+tar -xvf output.tar -C output
+------------------------------------------------------------
+curl -v http://127.0.0.1:8000/foo.txt -X DELETE
+curl -v http://127.0.0.1:8000/foo.txt -X DELETE
+curl -v http://127.0.0.1:8000/test/bar.txt -X DELETE
+------------------------------------------------------------
+
+DROPBOX CLIENT:
+
+npm run client
+node DropBoxClient.js --dir  /Users/bkakran/app/node/dropbox/dropbox_client2
+
+curl -i -X PUT  localhost:8000/bar1.txt
+curl -v http://127.0.0.1:8000/bar1.txt -X POST -d "hello bar1"
+curl -i -X PUT  localhost:8000/folder
+curl -i -X PUT  localhost:8000/folder/test.txt
+curl -v http://127.0.0.1:8000/folder/test.txt -X POST -d "hello test"
+curl -v http://127.0.0.1:8000/bar1.txt -X DELETE
+curl -v http://127.0.0.1:8000/folder -X DELETE
+------------------------------------------------------------
