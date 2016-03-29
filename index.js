@@ -104,29 +104,13 @@ function* read(req, res) {
     let accepts = req.headers['accept'];
     if (req.isDir && accepts.indexOf('application/x-gtar') != -1) {
         console.log('here');
-        //res.attachment('download.zip');
         res.setHeader('Content-disposition', 'attachment; filename=download.tar');
-       //var tarExtractStream = fs.createWriteStream(ROOT +'/release1.zip');
-        let archive = archiver('tar')
-        //archive.pipe(tarExtractStream);
+       let archive = archiver('tar')
         archive.pipe(res);
-        /* var files =  yield fs.promise.readdir(req.pathVar)
-         for (let file of files) {
-         //let loaclFilePath = ROOT + path.sep + file
-         archive.file(file, {name: path.basename(file)});
-         }
-         */
         archive.bulk([
             {expand: true, cwd: req.pathVar, src: ['**']}
         ])
-        //src: ['**/*']}
-        // archive.directory(req.pathVar)
         archive.finalize()
-        //res.end();
-      //  let stats = yield fs.promise.stat(ROOT +'/release1.zip')
-        //console.log(stats)
-       //res.setHeader('Content-Length', stats['size'])
-        //res.download('release1.zip');
     } else if (res.contents) {
         res.json(res.contents)
     } else {
