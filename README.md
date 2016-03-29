@@ -32,7 +32,7 @@ Time spent: 14
 - [ ] User can connect to the server using an FTP client
 
 
-![Video Walkthrough](node_dropbox.gif)
+![Video Walkthrough](walkthrough.gif)
 
 
 

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --harmony --use-strict --harmony_destructuring --harmony_default_parameters index.js --dir  /Users/bkakran/app/node/dropbox/files",
-    "client": "node --harmony --use-strict --harmony_destructuring --harmony_default_parameters DropBoxClient.js"
+    "start": "node --harmony --use-strict --harmony_destructuring --harmony_default_parameters index.js --dir  ./files",
+    "client": "node --harmony --use-strict --harmony_destructuring --harmony_default_parameters DropBoxClient.js --dir ./dropbox_client"
   },
   "repository": {
     "type": "git",
